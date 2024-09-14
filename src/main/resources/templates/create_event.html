@@ -94,7 +94,7 @@
 
             <h2 class="text-center mb-4">Criar Evento</h2>
             
-            <form th:action="@{/events/new}" th:object="${event}" method="post">
+            <form th:action="@{/new}" th:object="${event}" method="post">
                 <div class="mb-3">
                     <label for="name" class="form-label">Nome do Evento</label>
                     <input type="text" id="name" th:field="*{name}" class="form-control" placeholder="Nome do evento" required />

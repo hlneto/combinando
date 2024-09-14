@@ -14,13 +14,13 @@ import com.hneto.combinando.model.Participant;
 import com.hneto.combinando.service.EventService;
 
 @Controller
-@RequestMapping("/events")
+@RequestMapping("/")
 public class EventController {
 
     @Autowired
     private EventService eventService;
 
-    @GetMapping("/new")
+    @GetMapping("/")
     public String showCreateEventForm(Model model) {
         model.addAttribute("event", new Event());
         return "create_event";
@@ -29,7 +29,7 @@ public class EventController {
     @PostMapping("/new")
     public String createEvent(@ModelAttribute Event event) {
         eventService.saveEvent(event);
-        return "redirect:/events/" + event.getId();
+        return "redirect:/" + event.getId();
     }
 
     @GetMapping("/{id}")
