@@ -28,6 +28,6 @@ public class ParticipantController {
         Event event = eventService.findEventById(eventId).orElseThrow(() -> new IllegalArgumentException("Invalid event Id:" + eventId));
         participant.setEvent(event);
         participantService.saveParticipant(participant);
-        return "redirect:/events/" + eventId + "?refresh=true";
+        return "redirect:/" + eventId + "?refresh=true";
     }
 }
