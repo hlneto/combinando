@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import com.hneto.combinando.model.Event;
@@ -22,6 +23,7 @@ public class ParticipantController {
     private EventService eventService;
 
     @PostMapping("/add")
+    @Transactional
     public String addParticipant(@ModelAttribute Participant participant, @RequestParam UUID eventId) {
         Event event = eventService.findEventById(eventId).orElseThrow(() -> new IllegalArgumentException("Invalid event Id:" + eventId));
         participant.setEvent(event);
